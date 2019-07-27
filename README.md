@@ -26,6 +26,7 @@ The second part of our classifier is essentially a two-layer, fully-connected de
 4. Scikit Learn 0.20
 5. NLTK 3.4+
 6. Numpy 1.14.0
+7. Google API Client 1.7.4
 
 ## Requirements Installation
 1. Install Python 3.5
@@ -47,6 +48,7 @@ pip install --user -U scikit-learn
 pip install --user -U nltk
 pip install --user -U numpy
 pip install --user -U isodate emoji requests shutil
+pip install --user -U --force-reinstall google-api-python-client
 ```
 
 ## Usage
