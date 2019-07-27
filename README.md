@@ -4,6 +4,8 @@ A large number of the most-subscribed YouTube channels target children of very y
 
 In this work, we build a classifier able to discern inappropriate content that targets toddlers on YouTube with 84.3% accu- racy, and leverage it to perform a first-of-its-kind, large-scale, quantitative characterization that reveals some of the risks of YouTube media consumption by young children. Our analysis reveals that YouTube is still plagued by such disturbing videos and its currently deployed countermeasures are ineffective in terms of detecting them in a timely manner. Alarmingly, using our classifier we show that young children are not only able, but likely to encounter disturbing videos when they randomly browse the platform starting from benign videos.
 
+This work has been accepted for presentetion at ICWSM 2020. Preprint: https://arxiv.org/abs/1901.07046 
+
 ## Description
 In this repository we include a package with the latest version of the deep learning model implemented in this work which can be used by anyone who wants to detect inappropriate videos for kids on YouTube.
 
