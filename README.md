@@ -53,5 +53,11 @@ pip install --user -U --force-reinstall google-api-python-client
 
 ## Usage
 ```python
-import ...
+import disturbedyoutubeclassifier as dyc
+
+# Load the Disturbed YouTube Videos Detection Classifier
+classifier = dyc.DisturbedYouTubeClassifier(youtube_data_api_key=YOUR_YOUTUBE_DATA_API_KEY)
+
+# Make a prediction
+prediction = classifier.predict(video_id=YOUTUBE_VIDEO_ID)
 ```
