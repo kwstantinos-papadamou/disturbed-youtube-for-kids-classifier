@@ -8,7 +8,7 @@ In this work, we build a classifier able to discern inappropriate content that t
 In this repository we include a package with the latest version of the deep learning model implemented in this work which can be used by anyone who wants to detect inappropriate videos for kids on YouTube.
 
 ## Model Architecture
-![alt text](https://raw.githubusercontent.com/kwstantinos-papadamou/disturbed-youtube_videos-detection/master/model_architecture.pdf)
+![Model Architecture Diagram](https://github.com/kwstantinos-papadamou/disturbed-youtube_videos-detection/blob/master/model_architecture.png)
 
 ## Model Description
 The classifier consists of four different branches, where each branch processes a distinct feature type: title, tags, thumbnail, and statistics and style features. Then the outputs of all the branches are concatenated to form a two-layer, fully connected neural network that merges their output and drives the final classification.
@@ -23,7 +23,10 @@ The second part of our classifier is essentially a two-layer, fully-connected de
 1. Python 3.5+
 2. Tensorflow 1.13.1
 3. Keras 2.2.4
-4. NLTK 3.4+
+4. Scikit Learn 0.20
+5. NLTK 3.4+
+6. Numpy 1.14.0
+7. Google API Client 1.7.4
 
 ## Requirements Installation
 1. Install Python 3.5
@@ -41,10 +44,20 @@ sudo make altinstall
 ```
 pip install --user -U tensorflow==1.13.1
 pip install --user -U keras==2.2.4
+pip install --user -U scikit-learn
 pip install --user -U nltk
+pip install --user -U numpy
+pip install --user -U isodate emoji requests shutil
+pip install --user -U --force-reinstall google-api-python-client
 ```
 
 ## Usage
 ```python
-import ...
+from disturbedyoutubevideosdetection import disturbedyoutubeclassifier as dyc
+
+# Load the Disturbed YouTube Videos Detection Classifier
+classifier = dyc.DisturbedYouTubeClassifier(youtube_data_api_key=YOUR_YOUTUBE_DATA_API_KEY)
+
+# Make a prediction
+prediction = classifier.predict(video_id=YOUTUBE_VIDEO_ID)
 ```
