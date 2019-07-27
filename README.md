@@ -8,7 +8,7 @@ In this work, we build a classifier able to discern inappropriate content that t
 In this repository we include a package with the latest version of the deep learning model implemented in this work which can be used by anyone who wants to detect inappropriate videos for kids on YouTube.
 
 ## Model Architecture
-![alt text](https://raw.githubusercontent.com/kwstantinos-papadamou/disturbed-youtube_videos-detection/master/model_architecture.pdf)
+![Model Architecture Diagram](https://github.com/kwstantinos-papadamou/disturbed-youtube_videos-detection/blob/master/model_architecture.png)
 
 ## Model Description
 The classifier consists of four different branches, where each branch processes a distinct feature type: title, tags, thumbnail, and statistics and style features. Then the outputs of all the branches are concatenated to form a two-layer, fully connected neural network that merges their output and drives the final classification.
