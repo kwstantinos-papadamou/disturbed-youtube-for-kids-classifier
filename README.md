@@ -68,3 +68,7 @@ classifier = dyc.DisturbedYouTubeClassifier(youtube_data_api_key=YOUR_YOUTUBE_DA
 # Make a prediction
 prediction = classifier.predict(video_id=YOUTUBE_VIDEO_ID)
 ```
+
+## Test the Classifier
+You can also test the Disturbed YouTube Videos Detection Classifier using our API:
+https://api.disturbedyoutubeforkids.xyz:5000/disturbing_videos_detection/<YOUTUBE_VIDEO_ID>
