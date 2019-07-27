@@ -23,8 +23,9 @@ The second part of our classifier is essentially a two-layer, fully-connected de
 1. Python 3.5+
 2. Tensorflow 1.13.1
 3. Keras 2.2.4
-4. NLTK 3.4+
-5. Numpy 1.14.0
+4. Scikit Learn 0.20
+5. NLTK 3.4+
+6. Numpy 1.14.0
 
 ## Requirements Installation
 1. Install Python 3.5
@@ -42,6 +43,7 @@ sudo make altinstall
 ```
 pip install --user -U tensorflow==1.13.1
 pip install --user -U keras==2.2.4
+pip install --user -U scikit-learn
 pip install --user -U nltk
 pip install --user -U numpy
 pip install --user -U isodate emoji requests shutil
