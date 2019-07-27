@@ -53,6 +53,11 @@ pip install --user -U isodate emoji requests shutil
 pip install --user -U --force-reinstall google-api-python-client
 ```
 
+OR install using the requirements.txt file:
+```
+pip install -r requirements.txt --no-index
+```
+
 ## Usage
 ```python
 from disturbedyoutubevideosdetection import disturbedyoutubeclassifier as dyc
