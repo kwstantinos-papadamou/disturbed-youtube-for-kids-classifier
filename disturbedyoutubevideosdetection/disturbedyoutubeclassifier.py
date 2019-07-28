@@ -46,7 +46,7 @@ class DisturbedYouTubeClassifier(object):
         C'tor
         """
         # Disturbed YouTube Videos Detection Classifier details
-        self.disturbed_youtube_classifier_path = 'disturbed_youtube_model_final.hdf5'
+        self.disturbed_youtube_classifier_path = 'disturbed_youtube_videos_detection_model.hdf5'
         # Set Classes Labels
         self.classes = ['appropriate', 'disturbing']
 
