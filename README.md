@@ -49,7 +49,7 @@ pip install --user -U keras==2.2.4
 pip install --user -U scikit-learn
 pip install --user -U nltk
 pip install --user -U numpy
-pip install --user -U isodate emoji requests shutil
+pip install --user -U isodate emoji requests
 pip install --user -U --force-reinstall google-api-python-client
 ```
 
