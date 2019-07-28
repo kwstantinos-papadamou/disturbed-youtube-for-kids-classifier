@@ -580,4 +580,4 @@ class DisturbedYouTubeClassifier(object):
         """
         self.delete_video_downloaded_data(video_id=video_id)
 
-        return predicted_class
+        return predicted_class, prediction_proba
