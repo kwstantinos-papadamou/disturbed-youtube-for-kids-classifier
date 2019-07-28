@@ -66,7 +66,7 @@ from disturbedyoutubevideosdetection import disturbedyoutubeclassifier as dyc
 classifier = dyc.DisturbedYouTubeClassifier(youtube_data_api_key=YOUR_YOUTUBE_DATA_API_KEY)
 
 # Make a prediction
-prediction, probability = classifier.predict(video_id=YOUTUBE_VIDEO_ID)
+prediction, confidence_score = classifier.predict(video_id=YOUTUBE_VIDEO_ID)
 ```
 
 ## Test the Classifier
