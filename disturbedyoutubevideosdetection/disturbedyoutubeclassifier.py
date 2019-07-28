@@ -46,9 +46,9 @@ class DisturbedYouTubeClassifier(object):
         C'tor
         """
         # Disturbed YouTube Videos Detection Classifier details
-        self.disturbed_youtube_classifier_path = 'disturbed_youtube_videos_detection_model.hdf5'
+        self.disturbed_youtube_classifier_path = os.getcwd() + '/disturbedyoutubevideosdetection/disturbed_youtube_videos_detection_model.hdf5'
         # Set Classes Labels
-        self.classes = ['appropriate', 'disturbing']
+        self.classes = ['appropriate', 'inappropriate']
 
         # Define Base Directories
         self.VIDEO_DATA_DIR = 'video_data/'
@@ -473,8 +473,8 @@ class DisturbedYouTubeClassifier(object):
             # Check if the video's thumbnail directory exists and if not create it
             original_umask = os.umask(0)
             try:
-                if not os.path.exists(self.THUMBNAIL_DIR + video_id):
-                    os.makedirs(self.THUMBNAIL_DIR + video_id, 0o777)
+                if not os.path.exists(self.VIDEO_DATA_DIR):
+                    os.makedirs(self.VIDEO_DATA_DIR, 0o777)
             finally:
                 os.umask(original_umask)
 
@@ -483,7 +483,7 @@ class DisturbedYouTubeClassifier(object):
             filename = video_id + '.' + extension
 
             # Store the thumbnail file but first check if we already downloaded it
-            to_download = self.THUMBNAIL_DIR + video_id + '/' + filename
+            to_download = self.VIDEO_DATA_DIR + '/' + filename
             if not os.path.exists(to_download):
                 if response.status_code == 200:
                     with open(to_download, 'wb') as out_file:
@@ -499,8 +499,8 @@ class DisturbedYouTubeClassifier(object):
         :param video_id: the video_id to use and delete downloaded information
         """
         # Delete the folder with all the downloaded information
-        if os.path.exists(self.VIDEO_DATA_DIR + video_id):
-            os.system("rm -R " + self.VIDEO_DATA_DIR + video_id)
+        if os.path.exists(self.VIDEO_DATA_DIR):
+            os.system("rm -R " + self.VIDEO_DATA_DIR)
         return
 
     def predict(self, video_id):
@@ -514,7 +514,7 @@ class DisturbedYouTubeClassifier(object):
         video_information = self.get_video_information(video_id=video_id)
 
         if not video_information:
-            return 'UNKNOWN'
+            return 'unknown', '0%'
 
         """
         Get Video's Style Features (General Features also used for Training the Basic ML Models)
@@ -542,13 +542,11 @@ class DisturbedYouTubeClassifier(object):
         try:
             # Get Thumbnail URL
             video_thumbnail_url = video_information['snippet']['thumbnails']['high']['url']
-            # Check if we have already downloaded that thumbnail and if NOT then Download it
-            if not os.path.isfile(self.VIDEO_DATA_DIR + video_id + '.jpg'):
-                thumbnail_downloaded = self.download_thumbnail(url=video_thumbnail_url,
-                                                               video_id=video_id)
-            else:
-                thumbnail_downloaded = True
+            # Download that thumbnail
+            thumbnail_downloaded = self.download_thumbnail(url=video_thumbnail_url,
+                                                           video_id=video_id)
 
+            # thumbnail_downloaded = False
             if thumbnail_downloaded:
                 thumbnail_features = self.CNN_feature_extractor_model.extract_features_image(frame_image_path=self.VIDEO_DATA_DIR + video_id + '.jpg')
             else:
@@ -575,9 +573,18 @@ class DisturbedYouTubeClassifier(object):
         # Get predicted class from offset
         predicted_class = self.classes[prediction[0]]
 
+        confidence_score = '0%'
+        if prediction[0] == 0:
+            # Appropriate
+            confidence_score = "{0:.0%}".format(prediction_proba[0][0])
+        elif prediction[0] == 1:
+            # Inappropriate
+            confidence_score = "{0:.0%}".format(prediction_proba[0][1])
+
         """
         Delete video's downloaded data
         """
         self.delete_video_downloaded_data(video_id=video_id)
 
-        return predicted_class, prediction_proba
+        return predicted_class, confidence_score
+    
