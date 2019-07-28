@@ -71,4 +71,4 @@ prediction, probability = classifier.predict(video_id=YOUTUBE_VIDEO_ID)
 
 ## Test the Classifier
 You can also test the Disturbed YouTube Videos Detection Classifier using our REST API:
-http://api.disturbedyoutubeforkids.xyz:5000/disturbed_youtube_videos_detection?video_id=<YOUTUBE_VIDEO_ID>
+https://api.disturbedyoutubeforkids.xyz/disturbed_youtube_videos_detection?video_id=<YOUTUBE_VIDEO_ID>
