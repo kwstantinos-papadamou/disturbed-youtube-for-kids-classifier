@@ -11,21 +11,12 @@ This work has been accepted for presentetion at ICWSM 2020. Preprint available [
 
 If you make use of this code in your work, please cite the following paper:
 ```
-@article{DBLP:journals/corr/abs-1901-07046,
-  author    = {Kostantinos Papadamou and
-               Antonis Papasavva and
-               Savvas Zannettou and
-               Jeremy Blackburn and
-               Nicolas Kourtellis and
-               Ilias Leontiadis and
-               Gianluca Stringhini and
-               Michael Sirivianos},
-  title     = {Disturbed YouTube for Kids: Characterizing and Detecting Disturbing
-               Content on YouTube},
-  year      = {2019},
-  url       = {http://arxiv.org/abs/1901.07046},
-  archivePrefix = {arXiv},
-  eprint    = {1901.07046}
+@inproceedings{papadamou2020disturbedyoutube,
+    title= {{Disturbed YouTube for Kids: Characterizing and Detecting Inappropriate Videos Targeting Young Children}},
+    author={Papadamou, Kostantinos and Papasavva, Antonis and Zannettou, Savvas and Blackburn, Jeremy and Kourtellis, Nicolas and Leontiadis, Ilias and Stringhini, Gianluca and Sirivianos, Michael},
+    booktitle={14th International AAAI Conference on Web and Social Media},
+    year={2020},
+    organization={AAAI}
 }
 ```
 
